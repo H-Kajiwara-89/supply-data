@@ -1,0 +1,63 @@
+name: supply-data
+
+on:
+  schedule:
+    - cron: "0 10 * * *" # JST 19:00
+    - cron: "0 22 * * *" # JST 07:00（夜の公表に間に合わなかった分の拾い直し）
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: supply-data
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test
+        working-directory: pipeline
+        run: python -m unittest -v
+
+      - name: Build supply.sqlite
+        working-directory: pipeline
+        env:
+          SSK_MASTER_URL: ${{ vars.SSK_MASTER_URL }}
+          PAGES_URL: ${{ vars.PAGES_URL }}
+        run: |
+          args=(--out ../site/v1)
+          master=$(ls data/y_*.zip data/y_*.csv 2>/dev/null | head -1 || true)
+          if [ -n "$SSK_MASTER_URL" ]; then
+            args+=(--ssk-master "$SSK_MASTER_URL")
+          elif [ -n "$master" ]; then
+            args+=(--ssk-master "$master")
+          fi
+          if [ -n "$PAGES_URL" ]; then
+            args+=(--previous-manifest-url "${PAGES_URL%/}/v1/manifest.json")
+          fi
+          python build_supply_db.py "${args[@]}"
+          rm -f ../site/v1/supply.sqlite
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
