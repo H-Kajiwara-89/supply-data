@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プライバシーポリシー — SupplyChecker</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1c1c1e;
+    --muted: #6b6b70;
+    --rule: #e3e3e6;
+    --accent: #0b6bcb;
+    --note-bg: #eaf4ec;
+    --note-rule: #3f8f55;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121214;
+      --fg: #ececee;
+      --muted: #9a9aa0;
+      --rule: #2e2e32;
+      --accent: #5aa9f0;
+      --note-bg: #16261b;
+      --note-rule: #3f8f55;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    line-height: 1.85;
+    font-size: 16px;
+  }
+  main { max-width: 42rem; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+  h1 { font-size: 1.6rem; line-height: 1.4; margin: 0 0 .4rem; }
+  h2 {
+    font-size: 1.1rem;
+    margin: 2.6rem 0 .8rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  p, li { margin: .7rem 0; }
+  ul, ol { padding-left: 1.4rem; }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); font-size: .9rem; margin: 0 0 2.5rem; }
+  .note {
+    background: var(--note-bg);
+    border-left: 4px solid var(--note-rule);
+    padding: 1rem 1.1rem;
+    margin: 1.4rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .note p:first-child { margin-top: 0; }
+  .note p:last-child { margin-bottom: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 1.2rem 0; font-size: .95rem; }
+  th, td { border: 1px solid var(--rule); padding: .6rem .7rem; text-align: left; vertical-align: top; }
+  th { background: color-mix(in srgb, var(--fg) 5%, transparent); font-weight: 600; }
+  .wrap { overflow-x: auto; }
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: .88rem;
+  }
+</style>
+</head>
+<body>
+<main>
+
+<h1>SupplyChecker プライバシーポリシー</h1>
+<p class="meta">制定日：2026年11月16日</p>
+
+<p>梶原 紘嗣（以下「開発者」）は、iOS アプリケーション「SupplyChecker」（以下「本アプリ」）における利用者の情報の取り扱いについて、以下のとおり定めます。</p>
+
+<div class="note">
+<p><strong>要約：本アプリは、利用者の個人情報を一切収集しません。</strong></p>
+<p>処方箋の読み取りはすべて端末内で完結し、読み取った内容が端末の外に送信されることはありません。開発者が運営するサーバーは、医薬品の供給状況データを配信するだけの静的なファイル配信であり、利用者からデータを受け取る仕組みを持ちません。</p>
+</div>
+
+<h2>1. 収集しない情報</h2>
+
+<p>本アプリは、以下の情報を<strong>収集も送信もしません</strong>。</p>
+
+<ul>
+  <li>氏名、住所、電話番号、メールアドレスなどの連絡先情報</li>
+  <li>処方箋に記載された患者の氏名、生年月日、保険者番号などの情報</li>
+  <li>カメラで撮影した画像</li>
+  <li>位置情報</li>
+  <li>端末の識別子、広告識別子（IDFA）</li>
+  <li>アプリの利用状況に関する解析データ</li>
+</ul>
+
+<p>本アプリには、解析ツール、広告配信、クラッシュレポートなどの第三者サービスを一切組み込んでいません。</p>
+
+<h2>2. カメラの利用</h2>
+
+<p>本アプリは、処方箋の二次元コードの読み取りおよび文字認識のためにカメラを使用します。</p>
+
+<ul>
+  <li>カメラ映像の解析は、<strong>すべて端末内で</strong>行われます（Apple の端末内フレームワークを利用）。</li>
+  <li>撮影した画像は<strong>保存されず</strong>、読み取り処理の終了とともに破棄されます。</li>
+  <li>画像および読み取ったテキストが、開発者または第三者のサーバーに送信されることはありません。</li>
+</ul>
+
+<p>処方箋には患者の個人情報が含まれる場合がありますが、本アプリはこれを保存も送信もしません。読み取った内容は、医薬品を特定するためにその場で使われるのみです。</p>
+
+<h2>3. 端末内に保存される情報</h2>
+
+<p>以下の情報が、利用者の端末内にのみ保存されます。これらが外部に送信されることはありません。</p>
+
+<div class="wrap">
+<table>
+  <tr><th>保存されるもの</th><th>目的</th><th>削除方法</th></tr>
+  <tr>
+    <td>医薬品の供給状況データベース</td>
+    <td>オフラインでの照会</td>
+    <td>本アプリの削除</td>
+  </tr>
+  <tr>
+    <td>最近検索した医薬品名（最大20件）</td>
+    <td>再検索の利便性</td>
+    <td>アプリ内の設定画面、または本アプリの削除</td>
+  </tr>
+  <tr>
+    <td>1日あたりの読み取り回数</td>
+    <td>無料版の利用回数の管理</td>
+    <td>本アプリの削除</td>
+  </tr>
+</table>
+</div>
+
+<p>検索履歴として保存されるのは<strong>医薬品名などの検索語のみ</strong>であり、患者に関する情報は含まれません。</p>
+
+<h2>4. ネットワーク通信</h2>
+
+<p>本アプリが外部と通信するのは、医薬品の供給状況データを取得する場合に限られます。</p>
+
+<ul>
+  <li>通信先は <code>h-kajiwara-89.github.io</code>（GitHub Pages）のみです。</li>
+  <li>通信は<strong>ダウンロードのみ</strong>で、本アプリから利用者の情報を送信することはありません。</li>
+  <li>この配信は GitHub, Inc. のサービス上で行われるため、同社のサーバーにアクセス元の IP アドレスなどの通信記録が残る場合があります。これらの記録は同社が管理するものであり、開発者が参照することはできません。GitHub のプライバシーに関する方針は<a href="https://docs.github.com/ja/site-policy/privacy-policies/github-general-privacy-statement">同社のプライバシーステートメント</a>をご確認ください。</li>
+</ul>
+
+<h2>5. 購入情報の取り扱い</h2>
+
+<p>有料プラン「SupplyChecker Pro」の購入および課金は、すべて Apple Inc. を通じて処理されます。</p>
+
+<ul>
+  <li>クレジットカード情報などの決済情報を、開発者が受け取ることはありません。</li>
+  <li>購読状態の確認は、Apple が発行する署名付きの購入情報を端末内で検証することにより行われます。開発者のサーバーへの問い合わせは発生しません。</li>
+  <li>開発者が App Store Connect で確認できるのは、売上や購読数などの<strong>統計情報のみ</strong>であり、個人を特定できる情報は含まれません。</li>
+</ul>
+
+<h2>6. 第三者への提供</h2>
+
+<p>本アプリは個人情報を収集しないため、第三者に提供する情報はありません。</p>
+
+<h2>7. 子どもの利用について</h2>
+
+<p>本アプリは医療従事者向けの専門的な情報ツールであり、子どもの利用を想定していません。年齢に関する情報を含め、利用者から情報を収集することはありません。</p>
+
+<h2>8. 本ポリシーの変更</h2>
+
+<p>本ポリシーの内容は、法令の変更や本アプリの機能追加に伴い変更されることがあります。変更後の内容は本ページに掲載した時点で効力を生じます。情報の取り扱いに重要な変更が生じる場合は、本アプリ内で告知します。</p>
+
+<h2>9. お問い合わせ</h2>
+
+<p>本アプリの情報の取り扱いに関するお問い合わせは、以下までご連絡ください。</p>
+
+<p>
+梶原 紘嗣<br>
+メール：<a href="mailto:h.kajiwara89@gmail.com">h.kajiwara89@gmail.com</a>
+</p>
+
+<footer>
+  <p>SupplyChecker — <a href="./terms.html">利用規約</a></p>
+  <p>出典：厚生労働省「医療用医薬品の供給状況」</p>
+</footer>
+
+</main>
+</body>
+</html>

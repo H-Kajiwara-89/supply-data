@@ -21,6 +21,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Copy static pages
+        run: |
+          mkdir -p site
+          cp pages/*.html site/
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
